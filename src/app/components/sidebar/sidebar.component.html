@@ -1,0 +1,79 @@
+<aside class="sidebar" [class.active]="isActive">
+    <div class="sidebar-info">
+      <figure class="avatar-box">
+        <img [src]="profile.avatar" [alt]="profile.name" width="80">
+      </figure>
+  
+      <div class="info-content">
+        <h1 class="name" [title]="profile.name">{{ profile.name }}</h1>
+        <p class="title">{{ profile.title }}</p>
+      </div>
+  
+      <button class="info_more-btn" (click)="toggleSidebar()">
+        <span>{{ isActive ? 'Hide Contacts' : 'Show Contacts' }}</span>
+        <ion-icon name="chevron-down"></ion-icon>
+      </button>
+    </div>
+  
+    <div class="sidebar-info_more">
+      <div class="separator"></div>
+  
+      <ul class="contacts-list">
+        <li class="contact-item">
+          <div class="icon-box">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+  
+          <div class="contact-info">
+            <p class="contact-title">Email</p>
+            <a [href]="'mailto:' + profile.email" class="contact-link">{{ profile.email }}</a>
+          </div>
+        </li>
+  
+        <li class="contact-item">
+          <div class="icon-box">
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+          </div>
+  
+          <div class="contact-info">
+            <p class="contact-title">Phone</p>
+            <a [href]="'tel:' + profile.phone" class="contact-link">{{ profile.phone }}</a>
+          </div>
+        </li>
+  
+        <li class="contact-item">
+          <div class="icon-box">
+            <ion-icon name="calendar-outline" style="color: blue;"></ion-icon>
+          </div>
+  
+          <div class="contact-info">
+            <p class="contact-title">Birthday</p>
+            <time>{{ profile.birthday }}</time>
+          </div>
+        </li>
+  
+        <li class="contact-item">
+          <div class="icon-box">
+            <ion-icon name="location-outline"></ion-icon>
+          </div>
+  
+          <div class="contact-info">
+            <p class="contact-title">Location</p>
+            <address>{{ profile.location }}</address>
+          </div>
+        </li>
+      </ul>
+  
+      <div class="separator"></div>
+  
+      <ul class="social-list">
+        <li class="social-item" *ngFor="let social of socialLinks">
+          <a [href]="social.url" class="social-link">
+            <ion-icon [name]="social.icon"></ion-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  
+  
