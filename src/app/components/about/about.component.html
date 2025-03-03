@@ -1,0 +1,73 @@
+<article class="about active" data-page="about">
+    <header>
+      <h2 class="h2 article-title">About me</h2>
+    </header>
+  
+    <section class="about-text">
+      <p>
+        I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
+        I enjoy turning complex problems into simple, beautiful and intuitive designs.
+      </p>
+  
+      <p>
+        My job is to build your website so that it is functional and user-friendly but at the same time attractive.
+        Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
+        across your message and identity in the most creative way. I created web design for many famous brand companies.
+      </p>
+    </section>
+  
+    <!-- service -->
+    <section class="service">
+      <h3 class="h3 service-title">What i'm doing</h3>
+  
+      <ul class="service-list">
+        <li class="service-item" *ngFor="let service of services">
+          <div class="service-icon-box">
+            <img [src]="service.icon" [alt]="service.title + ' icon'" width="40">
+          </div>
+  
+          <div class="service-content-box">
+            <h4 class="h4 service-item-title">{{ service.title }}</h4>
+            <p class="service-item-text">{{ service.description }}</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- testimonials -->
+    <!-- <section class="testimonials">
+      <h3 class="h3 testimonials-title">Testimonials</h3>
+  
+      <ul class="testimonials-list has-scrollbar">
+        <li class="testimonials-item" *ngFor="let testimonial of testimonials">
+          <div class="content-card" (click)="openTestimonialModal(testimonial)">
+            <figure class="testimonials-avatar-box">
+              <img [src]="testimonial.avatar" [alt]="testimonial.name" width="60">
+            </figure>
+  
+            <h4 class="h4 testimonials-item-title">{{ testimonial.name }}</h4>
+  
+            <div class="testimonials-text">
+              <p>{{ testimonial.text }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- clients -->
+    <!-- <section class="clients">
+      <h3 class="h3 clients-title">Clients</h3>
+  
+      <ul class="clients-list has-scrollbar">
+        <li class="clients-item" *ngFor="let client of clients">
+          <a [href]="client.url">
+            <img [src]="client.logo" [alt]="client.name + ' logo'">
+          </a>
+        </li>
+      </ul>
+    </section> --> -->
+  </article>
+  
+  
+  

@@ -12,8 +12,8 @@ import { IonIconComponent } from '../ion-icon/ion-icon.component';
   
 })
 export class SidebarComponent {
-  profile = computed(this.portfolioService.getProfile())
-  socialLinks = computed(this.portfolioService.getSocialLinks())
+  profile = computed(this.portfolioService.getProfile())()
+  socialLinks = computed(this.portfolioService.getSocialLinks())()
   isActive = signal(false)
   constructor(private portfolioService: PortfolioService) {}
   toggleSidebar() {

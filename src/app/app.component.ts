@@ -1,14 +1,60 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { Component, signal } from "@angular/core"
+import { CommonModule } from "@angular/common"
+import { SidebarComponent } from "./components/sidebar/sidebar.component"
+import { NavbarComponent } from "./components/navbar/navbar.component"
+import { AboutComponent } from "./components/about/about.component"
+// import { ResumeComponent } from "./components/resume/resume.component"
+// import { PortfolioComponent } from "./components/portfolio/portfolio.component"
+// import { BlogComponent } from "./components/blog/blog.component"
+// import { ContactComponent } from "./components/contact/contact.component"
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, SidebarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [
+    CommonModule,
+    SidebarComponent,
+    NavbarComponent,
+    AboutComponent
+    // ResumeComponent,
+    // PortfolioComponent,
+    // BlogComponent,
+    // ContactComponent,
+  ],
+  template: `
+    <main>
+      <!-- Sidebar -->
+      <app-sidebar />
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Navbar -->
+        <app-navbar 
+          [activePage]="activePage()" 
+          (pageChange)="setActivePage($event)" />
+
+        @if (activePage() === 'about') {
+          <app-about />
+        } <!-- @else if (activePage() === 'resume') {
+          <app-resume />
+        } @else if (activePage() === 'portfolio') {
+          <app-portfolio />
+        } @else if (activePage() === 'blog') {
+          <app-blog />
+        } @else if (activePage() === 'contact') {
+          <app-contact />
+        } -->
+      </div>
+    </main>
+  `,
+  styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  title = 'PortFolio';
+  activePage = signal<string>("about")
+
+  setActivePage(page: string) {
+    this.activePage.set(page)
+    window.scrollTo(0, 0)
+  }
 }
+
