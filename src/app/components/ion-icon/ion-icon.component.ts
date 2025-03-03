@@ -17,15 +17,14 @@ import {
   logoTwitter,
   mailOutline,
   paperPlane,
-  phonePortraitOutline,
+  phonePortraitOutline
  } from 'ionicons/icons';
 
 @Component({
   selector: 'app-ion-icon',
   standalone: true,
   imports: [ IonIcon ],
-  templateUrl: './ion-icon.component.html',
-  styleUrl: './ion-icon.component.scss'
+  templateUrl: './ion-icon.component.html'
 })
 export class IonIconComponent {
   @Input() name: string = '';

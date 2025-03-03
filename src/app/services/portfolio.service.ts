@@ -27,9 +27,9 @@ export class PortfolioService {
   })
 
   private socialLinks = signal<SocialLink[]>([
-    { platform: "Stack Overflow", url: "#", icon: "logo-stackoverflow" },
-    { platform: "Github", url: "#", icon: "logo-github" },
-    { platform: "LinkedIn", url: "#", icon: "logo-linkedin" }
+    { platform: "Stack Overflow", url: "https://stackoverflow.com/users/18054540/ishu-gupta", icon: "logo-stackoverflow" },
+    { platform: "Github", url: "https://github.com/Ishu-Gupta-9-ISHGPT", icon: "logo-github" },
+    { platform: "LinkedIn", url: "https://www.linkedin.com/in/ishu-gupta-395493201/", icon: "logo-linkedin" }
   ])
 
   private services = signal<Service[]>([
