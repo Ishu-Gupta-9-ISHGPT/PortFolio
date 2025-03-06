@@ -22,8 +22,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.services = this.portfolioService.getServices()()
-    this.testimonials = this.portfolioService.getTestimonials()()
-    this.clients = this.portfolioService.getClients()
   }
 
   openTestimonialModal(testimonial: Testimonial): void {
