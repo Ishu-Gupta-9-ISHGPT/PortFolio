@@ -3,10 +3,15 @@ import { CommonModule } from "@angular/common"
 import { SidebarComponent } from "./components/sidebar/sidebar.component"
 import { NavbarComponent } from "./components/navbar/navbar.component"
 import { AboutComponent } from "./components/about/about.component"
-// import { ResumeComponent } from "./components/resume/resume.component"
+import { ResumeComponent } from "./components/resume/resume.component"
+import { HttpClientModule } from "@angular/common/http"
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 // import { PortfolioComponent } from "./components/portfolio/portfolio.component"
 // import { BlogComponent } from "./components/blog/blog.component"
-// import { ContactComponent } from "./components/contact/contact.component"
+import { ContactComponent } from "./components/contact/contact.component"
 
 @Component({
   selector: "app-root",
@@ -15,11 +20,13 @@ import { AboutComponent } from "./components/about/about.component"
     CommonModule,
     SidebarComponent,
     NavbarComponent,
-    AboutComponent
-    // ResumeComponent,
+    AboutComponent,
+    ResumeComponent,
+    HttpClientModule,
+
     // PortfolioComponent,
     // BlogComponent,
-    // ContactComponent,
+    ContactComponent,
   ],
   template: `
     <main>
@@ -35,15 +42,15 @@ import { AboutComponent } from "./components/about/about.component"
 
         @if (activePage() === 'about') {
           <app-about />
-        } <!-- @else if (activePage() === 'resume') {
+        } @else if (activePage() === 'resume') {
           <app-resume />
-        } @else if (activePage() === 'portfolio') {
+       <!-- } @else if (activePage() === 'portfolio') {
           <app-portfolio />
         } @else if (activePage() === 'blog') {
-          <app-blog />
+          <app-blog />-->
         } @else if (activePage() === 'contact') {
           <app-contact />
-        } -->
+        }
       </div>
     </main>
   `,

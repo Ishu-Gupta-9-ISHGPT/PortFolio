@@ -1,11 +1,13 @@
 import { Injectable, signal } from "@angular/core"
-import { IonIconComponent } from "../components/ion-icon/ion-icon.component"
+import { CommonModule } from "@angular/common"
+import { HttpClient } from "@angular/common/http"
+import { Observable } from "rxjs"
+
+
 import type {
   Profile,
   SocialLink,
   Service,
-  Testimonial,
-  Client,
   TimelineItem,
   Skill,
   Project,
@@ -55,78 +57,34 @@ export class PortfolioService {
     },
   ])
 
-  private testimonials = signal<Testimonial[]>([
-    {
-      avatar: "../../assets/images/avatar-1.png",
-      name: "Daniel lewis",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client.",
-    },
-    {
-      avatar: "../../assets/images/avatar-2.png",
-      name: "Jessica miller",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-    },
-    {
-      avatar: "../../assets/images/avatar-3.png",
-      name: "Emily evans",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-    },
-    {
-      avatar: "../../assets/images/avatar-4.png",
-      name: "Henry william",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-    },
-  ])
-
-  private clients: Client[] = [
-    { logo: "../../assets/images/logo-1-color.png", name: "Client 1", url: "#" },
-    { logo: "../../assets/images/logo-2-color.png", name: "Client 2", url: "#" },
-    { logo: "../../assets/images/logo-3-color.png", name: "Client 3", url: "#" },
-    { logo: "../../assets/images/logo-4-color.png", name: "Client 4", url: "#" },
-    { logo: "../../assets/images/logo-5-color.png", name: "Client 5", url: "#" },
-    { logo: "../../assets/images/logo-6-color.png", name: "Client 6", url: "#" },
-  ]
-
   private education: TimelineItem[] = [
     {
-      title: "University school of the arts",
-      date: "2007 — 2008",
+      title: "National Institute of Technology, Agartala",
+      date: "2020 — 2024",
       description:
-        "Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.",
+        "Completed Bachelor of Technology in Computer Science and Engineering, gaining strong knowledge in web development, data structures, and software engineering.",
     },
     {
-      title: "New york academy of art",
-      date: "2006 — 2007",
+      title: "Jawahar Navodaya Vidyalaya, Tikamgarh",
+      date: "2017 — 2019",
       description:
-        "Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est omnis..",
+        "Completed Higher Secondary Education with a specialization in Science stream, building a foundation in Mathematics and Computer Science.",
     },
     {
-      title: "High school of art and design",
-      date: "2002 — 2004",
+      title: "Jawahar Navodaya Vidyalaya, Tikamgarh",
+      date: "2012 — 2017",
       description:
-        "Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni dolores eos.",
-    },
+        "Completed Secondary Education, focusing on core subjects with excellent academic performance.",
+    },    
   ]
 
   private experience: TimelineItem[] = [
     {
-      title: "Creative director",
-      date: "2015 — Present",
+      title: "Frontend Developer",
+      date: "2024 — Present",
       description:
-        "Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas molestias exceptur.",
-    },
-    {
-      title: "Art director",
-      date: "2013 — 2015",
-      description:
-        "Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.",
-    },
-    {
-      title: "Web designer",
-      date: "2010 — 2013",
-      description:
-        "Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.",
-    },
+        "Working at Digit Insurance, contributing to the development of dynamic and responsive web applications using Angular. Collaborating with cross-functional teams to implement user-friendly interfaces and seamless API integrations.",
+    },    
   ]
 
   private skills: Skill[] = [
@@ -245,7 +203,7 @@ export class PortfolioService {
     },
   ]
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getProfile() {
     return this.profile
@@ -259,13 +217,6 @@ export class PortfolioService {
     return this.services
   }
 
-  getTestimonials() {
-    return this.testimonials
-  }
-
-  getClients(): Client[] {
-    return this.clients
-  }
 
   getEducation(): TimelineItem[] {
     return this.education
@@ -292,6 +243,10 @@ export class PortfolioService {
     return ["all", ...new Set(categories)]
   }
 
+  sendEmail(data: any): Observable<any> {
+    let url = `https://formspree.io/f/xanewevw`;
+    return this.http.post(url, data, {headers: { 'Content-Type' : "application/json"}});
+  }
   // Add more getter methods as needed
 }
 
