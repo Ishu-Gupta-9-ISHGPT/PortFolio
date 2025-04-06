@@ -3,6 +3,7 @@ import { Component, type OnInit } from "@angular/core"
 import { FormsModule, type NgForm } from "@angular/forms";
 import { IonIconComponent } from "../ion-icon/ion-icon.component"
 import { PortfolioService } from "../../services/portfolio.service";
+// import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
@@ -37,11 +38,12 @@ export class ContactComponent implements OnInit {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       this.portfolioService.sendEmail(this.formData).subscribe((res) => {
+        // this.messageService.add({severity:'success', summary: 'Success', detail: 'Message sent successfully'});
         form.reset();
         this.isFormValid = false;
       },
       (err) => {
-        // Handle error
+        // this.messageService.add({severity:'error', summary: 'Error', detail: 'Failed to send message'});
       });
       
     }

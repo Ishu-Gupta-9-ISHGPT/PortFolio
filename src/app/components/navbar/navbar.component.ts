@@ -31,6 +31,7 @@ export class NavbarComponent {
   navItems = [
     { id: "about", label: "About" },
     { id: "resume", label: "Resume" },
+    { id: "skill", label: "Skill" },
     { id: "contact", label: "Contact" },
   ]
 }
