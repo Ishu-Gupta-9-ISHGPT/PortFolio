@@ -9,8 +9,6 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-// import { PortfolioComponent } from "./components/portfolio/portfolio.component"
-// import { BlogComponent } from "./components/blog/blog.component"
 import { ContactComponent } from "./components/contact/contact.component"
 
 @Component({
@@ -23,9 +21,6 @@ import { ContactComponent } from "./components/contact/contact.component"
     AboutComponent,
     ResumeComponent,
     HttpClientModule,
-
-    // PortfolioComponent,
-    // BlogComponent,
     ContactComponent,
   ],
   template: `
@@ -44,10 +39,6 @@ import { ContactComponent } from "./components/contact/contact.component"
           <app-about />
         } @else if (activePage() === 'resume') {
           <app-resume />
-       <!-- } @else if (activePage() === 'portfolio') {
-          <app-portfolio />
-        } @else if (activePage() === 'blog') {
-          <app-blog />-->
         } @else if (activePage() === 'contact') {
           <app-contact />
         }
