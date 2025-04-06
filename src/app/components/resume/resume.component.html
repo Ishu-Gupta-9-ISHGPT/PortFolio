@@ -1,6 +1,13 @@
 <article class="resume active" data-page="resume">
     <header>
-        <h2 class="h2 article-title">Resume</h2>
+        <div class="title-wrapper-1">
+            <h2 class="h2 article-title">Resume</h2>
+            <span class="resume-btn">
+                <a href="https://drive.google.com/file/d/1058zEDWTqYmKnHeSl_u3tswASA-nD09W/view?usp=drive_link" download class="btn btn-primary">
+                    <ion-icon src="../../../assets/images/svgviewer-output (8).svg"></ion-icon>
+                </a>
+            </span>
+        </div>
     </header>
 
     <section class="timeline">
@@ -37,21 +44,4 @@
             </li>
         </ol>
     </section>
-
-    <!-- <section class="skill">
-      <h3 class="h3 skills-title">My skills</h3>
-  
-      <ul class="skills-list content-card">
-        <li class="skills-item" *ngFor="let skill of skills">
-          <div class="title-wrapper">
-            <h5 class="h5">{{ skill.name }}</h5>
-            <data [value]="skill.percentage">{{ skill.percentage }}%</data>
-          </div>
-  
-          <div class="skill-progress-bg">
-            <div class="skill-progress-fill" [style.width.%]="skill.percentage"></div>
-          </div>
-        </li>
-      </ul>
-    </section> -->
 </article>
