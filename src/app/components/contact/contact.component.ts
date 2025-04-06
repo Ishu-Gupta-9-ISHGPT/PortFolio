@@ -3,9 +3,6 @@ import { Component, type OnInit } from "@angular/core"
 import { FormsModule, type NgForm } from "@angular/forms";
 import { IonIconComponent } from "../ion-icon/ion-icon.component"
 import { PortfolioService } from "../../services/portfolio.service";
-import { ToastModule } from 'primeng/toast';
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
 import { HttpClientModule } from "@angular/common/http";
 
 @Component({
