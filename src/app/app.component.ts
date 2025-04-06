@@ -5,10 +5,6 @@ import { NavbarComponent } from "./components/navbar/navbar.component"
 import { AboutComponent } from "./components/about/about.component"
 import { ResumeComponent } from "./components/resume/resume.component"
 import { HttpClientModule } from "@angular/common/http"
-import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
 import { ContactComponent } from "./components/contact/contact.component"
 
 @Component({
