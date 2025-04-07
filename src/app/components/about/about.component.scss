@@ -42,10 +42,11 @@
   
   
   
-  @media (min-width: 450px) {
-    .tech-item {
-      gap: 20px;
+  @media (max-width: 450px) {
+    .about .tech-item {
       padding: 15px;
+      gap: 10px;
+      font-size: 13px;
     }
   }
   
@@ -68,7 +69,8 @@
   }
   
   @media (min-width: 768px) {
-    
+    .about .tech-item {
+      gap: 20px;
+    }
   }
-  
-  
+
